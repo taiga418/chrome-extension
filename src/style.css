@@ -1,9 +1,16 @@
 #mainPopup {
+    overflow: auto;
     padding: 10px;
     height: 200px;
     width: 400px;
     font-family: Helvetica, Ubuntu, Arial, sans-serif;
   }
-  h1 {
-    font-size: 2em;
-  }
+h1 {
+  font-size: 2em;
+}
+
+img{
+  height: 100px;
+  width: 100px;
+}
+

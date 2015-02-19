@@ -1,6 +1,5 @@
 #mainPopup {
     overflow: auto;
-    padding: 10px;
     height: 200px;
     width: 400px;
     font-family: Helvetica, Ubuntu, Arial, sans-serif;
@@ -10,7 +9,33 @@ h1 {
 }
 
 img{
-  height: 100px;
-  width: 100px;
+  float:right;
+  height: 98%;
+  width: 48%;
 }
 
+#spinner{
+  float:right;
+  height: 20%;
+  width: 20%;
+}
+
+#text{
+  text-align: center;
+  margin-bottom: 5%;
+  height:98%;
+  width:48%;
+  float:left;
+  border:solid;
+}
+
+#input{
+  margin-bottom: 10%;
+}
+
+#link{
+  margin-bottom: 5%;
+  display:inline-block;
+  width:90%;
+  overflow: auto;
+}

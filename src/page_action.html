@@ -7,14 +7,20 @@
   <body>
     <div data-ng-app="app" data-ng-controller="MainController" data-ng-cloak>
       <div id="mainPopup">
-        <h1>Image search</h1>
-        <form data-ng-submit="search()">
-          <span><input type="text" data-ng-model="querry"/></span>
-        </form>
-        <img data-ng-show="flag" data-ng-src="{{link}}" alt="{{link}}"/>
-        <p data-ng-show="flag">image url:{{link}}</p>
-        <p>{{errors}}</p>
-       
+        <div id="text">
+          <h1>Image search</h1>
+          <form data-ng-submit="search()">
+            <span><input id="input" type="text" data-ng-model="querry"/></span>
+          </form>
+          <div id="link" data-ng-show="flag">{{link}}</div>
+          <div data-ng-show="flag" id="buttons">
+            <button data-ng-click="previous()">previous</button>
+            <button data-ng-click="next()">next</button>
+          </div>
+          <p>{{errors}}</p>
+        </div>
+         <img id="spinner" data-ng-show="!flag" src="../icons/spiffygif_88x88.gif" alt="spinner"/>
+         <img data-ng-show="flag" data-ng-src="{{link}}" alt="{{link}}"/>
       </div>
     </div>
   </body>

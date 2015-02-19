@@ -7,8 +7,11 @@
   <body>
     <div data-ng-app="app" data-ng-controller="MainController" data-ng-cloak>
       <div id="mainPopup">
-      <h1>Hello extensionizr!</h1>
-      <p>{{data}}</p>
+        <h1>Hello extensionizr!</h1>
+        <p>{{data}}</p>
+        <form data-ng-submit="search()">
+          <span><input type="text" data-ng-model="querry"/></span>
+        </form>
       </div>
     </div>
   </body>

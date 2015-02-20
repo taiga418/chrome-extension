@@ -4,11 +4,13 @@
      <link rel="stylesheet" href="./style.css" type="text/css">
      <script src="../js/angular/angular.min.js"></script>
   </head>
+  </head>
   <body>
     <div data-ng-app="app" data-ng-controller="MainController" data-ng-cloak>
       <div id="mainPopup">
-        <div id="text">
-          <h1>Image search</h1>
+        <div  data-ng-class="flag? 'textOnSearch' : 'textNoSearch'">
+          <h1>Image-url search</h1>
+          <img data-ng-show="!flag"id="logo"src="../icons/Google-Images-Search-logo.gif"alt="logo"/>
           <form data-ng-submit="search()">
             <span><input id="input" type="text" data-ng-model="querry"/></span>
           </form>
@@ -19,7 +21,7 @@
           </div>
           <p>{{errors}}</p>
         </div>
-         <img id="spinner" data-ng-show="!flag" src="../icons/spiffygif_88x88.gif" alt="spinner"/>
+         <img id="spinner" data-ng-show="searching" src="../icons/image_816112.gif" alt="spinner"/>
          <img data-ng-show="flag" data-ng-src="{{link}}" alt="{{link}}"/>
       </div>
     </div>

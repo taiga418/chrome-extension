@@ -6,6 +6,7 @@ var app = angular.module('app',[]);
 
 app.controller('MainController', ['$scope','$http',function($scope,$http){
   $scope.flag = false;
+  $scope.searching = false;
   $scope.index = 0;
   $scope.data = 'd';
 
@@ -14,11 +15,13 @@ app.controller('MainController', ['$scope','$http',function($scope,$http){
   });
 
   $scope.search = function(){
+    $scope.searching = true;
     $http({
       url: 'https://ajax.googleapis.com/ajax/services/search/images' +
     '?v=1.0&q='+ $scope.querry,
       method: 'GET',
     }).success(function(data){
+      $scope.searching = false;
       $scope.index = 0;
       $scope.flag = false;
       $scope.errors = "";
@@ -36,11 +39,11 @@ app.controller('MainController', ['$scope','$http',function($scope,$http){
   };
 
   $scope.next = function(){
-    if($scope.index < $scope.data.responseData.results.length) $scope.index++;
+    if($scope.index < $scope.data.responseData.results.length-1) $scope.index++;
   };
 
   $scope.previous = function(){
-    if($scope.index >= 0) $scope.index--;
+    if($scope.index > 0) $scope.index--;
   };
 
 }]);

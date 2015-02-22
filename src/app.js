@@ -8,13 +8,14 @@ app.controller('MainController', ['$scope','$http',function($scope,$http){
   $scope.flag = false;
   $scope.searching = false;
   $scope.index = 0;
-  $scope.data = 'd';
+
 
   $scope.$watch('index', function(){
-    $scope.link = $scope.data.responseData.results[$scope.index].url;
+    if($scope.data) $scope.link = $scope.data.responseData.results[$scope.index].url;
   });
 
   $scope.search = function(){
+    $scope.link = '';
     $scope.searching = true;
     $http({
       url: 'https://ajax.googleapis.com/ajax/services/search/images' +
@@ -38,12 +39,27 @@ app.controller('MainController', ['$scope','$http',function($scope,$http){
     })
   };
 
+  //goes to next image if available
   $scope.next = function(){
     if($scope.index < $scope.data.responseData.results.length-1) $scope.index++;
   };
 
+  //goes back to previous image if available.
   $scope.previous = function(){
     if($scope.index > 0) $scope.index--;
   };
+
+  //can't use ng-clipboard directive, so using the messier alternative
+  $scope.copy = function(){
+    var copyDiv = document.createElement('div');
+    copyDiv.contentEditable = true;
+    document.body.appendChild(copyDiv);
+    copyDiv.innerHTML = $scope.link;
+    copyDiv.unselectable = "off";
+    copyDiv.focus();
+    document.execCommand('SelectAll');
+    document.execCommand("Copy", false, null);
+    document.body.removeChild(copyDiv);
+  }
 
 }]);

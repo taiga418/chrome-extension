@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-     <link rel="stylesheet" href="./style.css" type="text/css">
-     <script src="../js/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="../js/angular/angular.min.js"></script>
   </head>
   </head>
   <body>
@@ -12,12 +12,12 @@
           <h1>Image-url search</h1>
           <img data-ng-show="!flag"id="logo"src="../icons/Google-Images-Search-logo.gif"alt="logo"/>
           <form data-ng-submit="search()">
-            <span><input id="input" type="text" data-ng-model="querry"/></span>
+            <span><input placeholder="Search for an image" id="input" type="text" data-ng-model="querry"/></span>
           </form>
-          <div id="link" data-ng-show="flag">{{link}}</div>
           <div data-ng-show="flag" id="buttons">
-            <button data-ng-click="previous()">previous</button>
-            <button data-ng-click="next()">next</button>
+            <button id="copy" data-ng-click="copy()">copy image-url to clipboard</button>
+            <button class="direction" data-ng-click="previous()">previous</button>
+            <button class="direction" data-ng-click="next()">next</button>
           </div>
           <p>{{errors}}</p>
         </div>
